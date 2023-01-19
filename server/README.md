@@ -43,3 +43,5 @@
 - Download APP Expo na PlayStore (no Celular Android)
 - `npx create-expo-app mobile --template` // Escolher "Blank TypeScript"
 - `npx expo start`
+- `npx expo start --clear`
+- `npx expo install expo-font @expo-google-fonts/inter`
