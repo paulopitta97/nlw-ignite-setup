@@ -33,3 +33,13 @@
 - `npx tailwindcss init -p`
 
 - // Extensões VS Code: "PostCSS Language Support" e "Tailwind CSS IntelliSense"
+
+
+### Rascunhos (Mobile)
+
+- `npm install -g expo-cli`
+- `expo --version`
+- https://react-native.rocketseat.dev/expo-managed/windows/
+- Download APP Expo na PlayStore (no Celular Android)
+- `npx create-expo-app mobile --template` // Escolher "Blank TypeScript"
+- `npx expo start`
