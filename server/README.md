@@ -26,6 +26,7 @@
 - `npx prisma migrate dev`
 - `npm i -D prisma-erd-generator @mermaid-js/mermaid-cli`
 - `npx prisma generate`
+- `npx prisma db seed`
 
 ### Rascunhos (Client)
 
