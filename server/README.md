@@ -27,6 +27,8 @@
 - `npm i -D prisma-erd-generator @mermaid-js/mermaid-cli`
 - `npx prisma generate`
 - `npx prisma db seed`
+- `npm i zod`
+- `npm i dayjs`
 
 ### Rascunhos (Client)
 
