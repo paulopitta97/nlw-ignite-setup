@@ -6,6 +6,8 @@
 
 ### Rascunhos (Server)
 
+#### AULA 1
+
 - `npm init -y`
 - `npm i fastify`
 - `npm i typescript -D`
@@ -19,8 +21,15 @@
 - `npx prisma studio`
 - `npm i @fastify/cors`
 
+#### AULA 2
+
+- `npx prisma migrate dev`
+- `npm i -D prisma-erd-generator @mermaid-js/mermaid-cli`
+- `npx prisma generate`
 
 ### Rascunhos (Client)
+
+#### AULA 1
 
 - `npm i create-vite@latest -D -g`
 - `npm create vite@latest`
@@ -36,6 +45,8 @@
 
 
 ### Rascunhos (Mobile)
+
+#### AULA 1
 
 - `npm install -g expo-cli`
 - `expo --version`
