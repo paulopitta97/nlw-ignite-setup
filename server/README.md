@@ -46,6 +46,9 @@
 
 - // Extensões VS Code: "PostCSS Language Support" e "Tailwind CSS IntelliSense"
 
+#### AULA 2
+
+- `npm i phosphor-react`
 
 ### Rascunhos (Mobile)
 
