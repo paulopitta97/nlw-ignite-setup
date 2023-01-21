@@ -63,3 +63,11 @@
 - `npx expo start`
 - `npx expo start --clear`
 - `npx expo install expo-font @expo-google-fonts/inter`
+
+#### AULA 2
+
+- `npm i nativewind`
+- `npm i -D tailwindcss`
+- `npx tailwindcss init`
+- `npx expo install react-native-svg`
+- `npm i -D react-native-svg-transformer`
