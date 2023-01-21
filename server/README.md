@@ -49,6 +49,7 @@
 #### AULA 2
 
 - `npm i phosphor-react`
+- `npm i dayjs`
 
 ### Rascunhos (Mobile)
 
