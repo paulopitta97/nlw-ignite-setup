@@ -71,3 +71,4 @@
 - `npx tailwindcss init`
 - `npx expo install react-native-svg`
 - `npm i -D react-native-svg-transformer`
+- `npm i dayjs`
