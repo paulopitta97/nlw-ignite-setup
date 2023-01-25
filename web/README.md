@@ -21,5 +21,6 @@
 
 #### AULA 3
 
-- ``
+- radix-ui.com
+- `npm i @radix-ui/react-dialog`
 - ``
