@@ -24,3 +24,4 @@
 - radix-ui.com
 - `npm i @radix-ui/react-dialog`
 - `npm i @radix-ui/react-popover`
+- `npm i clsx`
