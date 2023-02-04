@@ -30,3 +30,4 @@
 
 - radix-ui.com
 - `npm i @radix-ui/react-checkbox`
+- `npm i axios`
