@@ -25,3 +25,8 @@
 - `npm i @react-navigation/native`
 - `npx expo install react-native-screens react-native-safe-area-context`
 - `npm install @react-navigation/native-stack`
+
+#### AULA 4
+
+- `npm i axios`
+- `npm i clsx`
