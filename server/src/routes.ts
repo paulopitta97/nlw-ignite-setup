@@ -15,7 +15,7 @@ export async function appRoutes(app: FastifyInstance) {
         })
         const { title, weekDays } = createHabitBody.parse(request.body)
 
-        const today = new Date(new Date().setHours(0, 0, 0, 0)); // 2023-01-01 00:00:00
+        const today = dayjs().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]')
 
         await prisma.habit.create({
             data: {
@@ -43,6 +43,8 @@ export async function appRoutes(app: FastifyInstance) {
 
         const parsedDate = dayjs(date).startOf('day')
         const weekDay = parsedDate.get('day')
+        // console.log(weekDay)
+        // console.log(parsedDate.toDate())
 
         const possibleHabits = await prisma.habit.findMany({
             where: {
@@ -57,14 +59,25 @@ export async function appRoutes(app: FastifyInstance) {
             }
         })
 
-        const day = await prisma.day.findUnique({
+        const day_min = new Date(dayjs(date).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'))
+        const day_max = new Date(dayjs(date).endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'))
+        console.log(day_min)
+        console.log(day_max)
+
+        const days = await prisma.day.findMany({
             where: {
-                date: parsedDate.toDate(),
+                date: {
+                    lte: day_max,
+                    gte: day_min,
+                }
             },
             include: {
                 dayHabits: true,
             }
         })
+        console.log(days)
+        const day = days?.length > 0 ? days[0] : null;
+        console.log(day)
 
         const completedHabits = day?.dayHabits.map(dayHabit => {
             return dayHabit.habit_id
@@ -83,18 +96,24 @@ export async function appRoutes(app: FastifyInstance) {
 
         const { id } = toggleHabitParams.parse(request.params)
 
-        const today = dayjs().startOf('day').toDate()
+        const today_min = new Date(dayjs().startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'))
+        const today_max = new Date(dayjs().endOf('day').format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'))
 
-        let day = await prisma.day.findUnique({
+        let days = await prisma.day.findMany({
             where: {
-                date: today
+                date: {
+                    lte: today_max,
+                    gte: today_min,
+                }
             }
         })
+
+        let day = days?.length === 0 ? null : days[0];
 
         if(!day) {
             day = await prisma.day.create({
                 data: {
-                    date: today
+                    date: dayjs().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]')
                 }
             })
         }
@@ -148,7 +167,7 @@ export async function appRoutes(app: FastifyInstance) {
                     JOIN habits H 
                         ON H.id = HWD.habit_id
                     WHERE 
-                        HWD.week_day = cast(strftime('%w', D.date/1000.0, 'uniexepoch') as int)
+                        HWD.week_day = CAST(strftime('%w', D.date/1000.0, 'unixepoch') AS REAL)
                         AND H.created_at <= D.date
                 ) as amount
             FROM days D
