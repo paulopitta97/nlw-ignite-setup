@@ -12,4 +12,4 @@
 
 ### 📝 Licença
 
-- MIT © [Paulo Pitta](https://github.com/paulopitta97)
+- [MIT](https://github.com/paulopitta97/nlw-ignite-setup/blob/master/LICENSE) © [Paulo Pitta](https://github.com/paulopitta97)
