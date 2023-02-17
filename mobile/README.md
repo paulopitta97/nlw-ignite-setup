@@ -30,3 +30,7 @@
 
 - `npm i axios`
 - `npm i clsx`
+
+#### AULA 5
+
+- `npx expo install react-native-reanimated`
