@@ -32,7 +32,7 @@ export function New() {
                 errors.push('Informe a periodicidade do hábito.');
 
             if(errors.length > 0)
-                Alert.alert('Novo Hábito', errors.join('\n'));
+                return Alert.alert('Novo Hábito', errors.join('\n'));
 
             // Chamando API
             await api.post('/habits', { title, weekDays });
