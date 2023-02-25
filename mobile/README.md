@@ -34,3 +34,7 @@
 #### AULA 5
 
 - `npx expo install react-native-reanimated`
+
+#### AULA EXTRA
+
+- `npx expo install expo-notifications`
