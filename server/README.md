@@ -24,7 +24,7 @@
 - `npm i zod`
 - `npm i dayjs`
 
-#### AULA 3
+#### AULA EXTRA
 
-- ``
-- ``
+- `npm i web-push`
+- `npm i @types/web-push -D`
