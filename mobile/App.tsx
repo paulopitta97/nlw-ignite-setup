@@ -12,6 +12,7 @@ import { Loading } from './src/components/Loading';
 import { Routes } from './src/routes';
 
 import * as Notifications from 'expo-notifications';
+import { useEffect } from 'react';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -29,18 +30,30 @@ export default function App() {
     Inter_800ExtraBold
   })
 
-  async function scheduleNotification() {
+  async function schedulePushNotification() {
+    const schedule = await Notifications.getAllScheduledNotificationsAsync();
+    console.log("Agendadas: ", schedule);
+
+    if (schedule.length > 0) {
+      await Notifications.cancelAllScheduledNotificationsAsync();
+    }
+
     const trigger = new Date(Date.now());
-    trigger.setSeconds(trigger.getSeconds() + 10);
+    trigger.setHours(trigger.getHours() + 5);
+    trigger.setSeconds(0);
+
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: 'Olá, Paulo! 👏',
+        title: 'Olá, Paulo! 😀',
         body: 'Você praticou seus hábitos hoje?'
       },
       trigger
     })
   }
 
+  useEffect(() => {
+    schedulePushNotification();
+  }, []);
 
   if(!fontsLoaded) {
     return (
@@ -50,9 +63,8 @@ export default function App() {
 
   return (
     <>
-      <Button title="Enviar Notificação" onPress={scheduleNotification} />
       <Routes />
-      <StatusBar barStyle='light-content' backgroundColor='transparent' /*translucent*/ />
+      <StatusBar barStyle='light-content' backgroundColor='transparent' translucent />
     </>
   );
 }
