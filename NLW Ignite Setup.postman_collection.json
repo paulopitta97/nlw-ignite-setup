@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "51af2096-5668-49bb-b3ab-17189124fd01",
+		"name": "NLW Ignite Setup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9113747"
+	},
+	"item": [
+		{
+			"name": "Create Habit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Exemplo de Hábito\",\r\n    \"weekDays\": [0, 1, 2]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/habits",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"habits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Day",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/day?date=2023-02-11T00:00:00.000z",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"day"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2023-02-11T00:00:00.000z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle Habit",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/habits/808b087a-a16d-4385-8bc1-ba023aac9d32/toggle",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"habits",
+						"808b087a-a16d-4385-8bc1-ba023aac9d32",
+						"toggle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/summary",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"summary"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3333",
+			"type": "string"
+		}
+	]
+}
